@@ -1,0 +1,10 @@
+{
+	"ID": "e51fa59a4675d6bcdcf16595ca5f77ae",
+	"TypeName": "Game.Defaults",
+	"EngineBuild": 6216,
+	"Data": {
+	"InitHpPlayer": 75.0,
+	"InitShielPlayer": 100.0,
+	"InitHpEnemy": 100.0
+}
+}

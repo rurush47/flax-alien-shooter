@@ -5,11 +5,16 @@ namespace Game
     public class PlayerController : Script
     {
         [Serialize] private Camera _camera;
+        public HpBar HpBar;
+        public JsonAsset Defaults;
+        public Player Player;
         public float Speed;
 
         public override void OnStart()
         {
             _camera = Camera.MainCamera;
+            Player = new Player((Defaults)Defaults.CreateInstance());
+            HpBar.Init(Player.Hp);
         }
 
         public override void OnEnable()
@@ -32,7 +37,6 @@ namespace Game
             var inputVectorDir = Vector3.Normalize(inputVector);
 
             var moveDir = Vector3.Normalize(_camera.Transform.TransformDirection(inputVectorDir) * new Vector3(1, 0, 1));
-            Debug.Log(moveDir.Length);
 
             Actor.Position += moveDir * Speed;
             TurnToMousePos();
@@ -45,8 +49,6 @@ namespace Game
 
             Plane plane = new Plane(Vector3.Zero, new Vector3(0, 1, 0));
             plane.Intersects(ref ray, out Vector3 point);
-
-            Debug.Log(point);
 
             var lookAtPoint = new Vector3(point.X, Actor.Position.Y, point.Z);
             Actor.LookAt(lookAtPoint);

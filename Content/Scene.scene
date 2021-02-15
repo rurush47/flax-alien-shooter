@@ -138,6 +138,79 @@
 }
 		},
 		{
+			"ID": "43ff6a4840fbdcbb11b0d8b7e6cc0e83",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Enemy",
+			"Transform": {
+				"Translation": {
+					"X": -191.57923889160157,
+					"Y": 0.0,
+					"Z": 151.81866455078126
+				}
+			}
+		},
+		{
+			"ID": "b5408e90487705ca243b78b5a5859556",
+			"TypeName": "Game.EnemyController",
+			"ParentID": "43ff6a4840fbdcbb11b0d8b7e6cc0e83",
+			"V": {
+	"Defaults": "e51fa59a4675d6bcdcf16595ca5f77ae"
+}
+		},
+		{
+			"ID": "9025c135473d437a900d08808bb4023f",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "43ff6a4840fbdcbb11b0d8b7e6cc0e83",
+			"Name": "Capsule",
+			"Model": "3f82e57744f57c28285150b646ad2198",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "8391b6da40053a988a0959ab9f26f700",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "2bf3350e43d5a5eb8a41258cd95a8c7e",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "43ff6a4840fbdcbb11b0d8b7e6cc0e83",
+			"Name": "Cone 0",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 73.39645385742188,
+					"Z": 36.0
+				},
+				"Orientation": {
+					"X": 0.7071068286895752,
+					"Y": 0.0,
+					"Z": 0.0,
+					"W": 0.7071068286895752
+				},
+				"Scale": {
+					"X": 0.30000001192092898,
+					"Y": 0.30000001192092898,
+					"Z": 0.30000001192092898
+				}
+			},
+			"Model": "1b4a643d44706750b2e35ea4e11e3663",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "8391b6da40053a988a0959ab9f26f700",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
 			"ID": "0757301b4062d82023e530ba02cf4cad",
 			"TypeName": "FlaxEngine.StaticModel",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
@@ -146,7 +219,7 @@
 				"Translation": {
 					"X": 2.9208450317382814,
 					"Y": 5.0,
-					"Z": 14.629562377929688
+					"Z": -80.34248352050781
 				}
 			},
 			"Model": "3f82e57744f57c28285150b646ad2198",
@@ -166,14 +239,10 @@
 			"TypeName": "Game.PlayerController",
 			"ParentID": "0757301b4062d82023e530ba02cf4cad",
 			"V": {
+	"HpBar": "ec1775b04373bb4317baf08ca2fcda8f",
+	"Defaults": "e51fa59a4675d6bcdcf16595ca5f77ae",
 	"Speed": 5.0
 }
-		},
-		{
-			"ID": "93237d4044ffc1bd5f7ac1a2ea7c17b3",
-			"TypeName": "FlaxEngine.EmptyActor",
-			"ParentID": "0757301b4062d82023e530ba02cf4cad",
-			"Name": "EmptyActor"
 		},
 		{
 			"ID": "ae73a5f14471ef0c33fd91adc9ec30e4",
@@ -239,6 +308,95 @@
 					}
 				]
 			}
+		},
+		{
+			"ID": "75aadb05484403321141acb03048c291",
+			"TypeName": "FlaxEngine.UICanvas",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "UICanvas",
+			"Transform": {
+				"Orientation": {
+					"X": 1.0,
+					"Y": 4.371138828673793e-8,
+					"Z": 4.371138828673793e-8,
+					"W": 1.910685465164705e-15
+				}
+			},
+			"V": {
+	"Size": {
+		"X": 1091.0,
+		"Y": 580.0
+	}
+}
+		},
+		{
+			"ID": "c5a8e1f244495ab54bb3fcaf84bf1658",
+			"TypeName": "FlaxEngine.UIControl",
+			"ParentID": "75aadb05484403321141acb03048c291",
+			"Name": "HpBar",
+			"Control": "FlaxEngine.GUI.ProgressBar",
+			"Data": {
+	"SmoothingScale": 1.0,
+	"Minimum": 0.0,
+	"Maximum": 100.0,
+	"Value": 50.0,
+	"BarMargin": {
+		"Left": 1.0,
+		"Right": 1.0,
+		"Top": 1.0,
+		"Bottom": 1.0
+	},
+	"BarColor": {
+		"R": 0.0392156877,
+		"G": 0.827451,
+		"B": 0.156862751,
+		"A": 1.0
+	},
+	"AnchorMin": {
+		"X": 0.0,
+		"Y": 0.0
+	},
+	"AnchorMax": {
+		"X": 0.0,
+		"Y": 0.0
+	},
+	"Offsets": {
+		"Left": 0.0,
+		"Right": 120.0,
+		"Top": 0.0,
+		"Bottom": 28.0
+	},
+	"Scale": {
+		"X": 1.0,
+		"Y": 1.0
+	},
+	"Pivot": {
+		"X": 0.5,
+		"Y": 0.5
+	},
+	"Shear": {
+		"X": 0.0,
+		"Y": 0.0
+	},
+	"Rotation": 0.0,
+	"BackgroundColor": {
+		"R": 0.109803922,
+		"G": 0.109803922,
+		"B": 0.109803922,
+		"A": 1.0
+	},
+	"Enabled": true,
+	"Visible": true,
+	"AutoFocus": false
+}
+		},
+		{
+			"ID": "ec1775b04373bb4317baf08ca2fcda8f",
+			"TypeName": "Game.HpBar",
+			"ParentID": "c5a8e1f244495ab54bb3fcaf84bf1658",
+			"V": {
+	"BarControl": "c5a8e1f244495ab54bb3fcaf84bf1658"
+}
 		}
 	]
 }
