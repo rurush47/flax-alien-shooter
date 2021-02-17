@@ -1,0 +1,65 @@
+{
+	"ID": "9dbf3a0a4ff8e7104b57be9f9a2e95fe",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6216,
+	"Data": [
+	{
+		"ID": "2bbb699c4dfe075e41e4859cd2bc3c29",
+		"TypeName": "FlaxEngine.RigidBody",
+		"Name": "Prefab 0",
+		"Transform": {
+			"Translation": {
+				"X": -114.74064636230469,
+				"Y": 0.0,
+				"Z": -269.0428771972656
+			}
+		},
+		"Mass": 520.6746826171875
+	},
+	{
+		"ID": "7d21edb64c1cf3361d2fa4835640085a",
+		"TypeName": "Game.BulletController",
+		"ParentID": "2bbb699c4dfe075e41e4859cd2bc3c29",
+		"V": {
+	"Speed": 1000.0
+}
+	},
+	{
+		"ID": "3e5e5dd64561cd18053916bec1962b80",
+		"TypeName": "FlaxEngine.SphereCollider",
+		"ParentID": "2bbb699c4dfe075e41e4859cd2bc3c29",
+		"Name": "SphereCollider",
+		"Transform": {
+			"Scale": {
+				"X": 0.20000000298023225,
+				"Y": 0.20000000298023225,
+				"Z": 0.20000000298023225
+			}
+		}
+	},
+	{
+		"ID": "783de7fe404abe2dc0f43dad6a8647bf",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "2bbb699c4dfe075e41e4859cd2bc3c29",
+		"Name": "Sphere",
+		"Transform": {
+			"Scale": {
+				"X": 0.20000000298023225,
+				"Y": 0.20000000298023225,
+				"Z": 0.20000000298023225
+			}
+		},
+		"Model": "dd86c4724bf734c4959d23b3c74faa05",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "00000000000000000000000000000000",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	}
+]
+}

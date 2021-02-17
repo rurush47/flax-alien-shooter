@@ -1,10 +1,16 @@
 ﻿using FlaxEngine;
+using System;
+using System.Threading.Tasks;
 
 namespace Game
 {
     public class PlayerController : Script
     {
         [Serialize] private Camera _camera;
+        [Serialize, ShowInEditor] private Prefab _bulletPrefab;
+        [Serialize, ShowInEditor] private Vector3 _bulletOffset = new Vector3(0, 75, 0);
+        [Serialize, ShowInEditor] private float _bulletSpeed = 1000;
+        private ObjectPool<BulletController> _bulletPool;
         public HpBar HpBar;
         public JsonAsset Defaults;
         public Player Player;
@@ -13,8 +19,16 @@ namespace Game
         public override void OnStart()
         {
             _camera = Camera.MainCamera;
+            _bulletPool = new ObjectPool<BulletController>(SpawnBullet);
             Player = new Player((Defaults)Defaults.CreateInstance());
             HpBar.Init(Player.Hp);
+        }
+
+        private BulletController SpawnBullet()
+        {
+            var newActor = PrefabManager.SpawnPrefab(_bulletPrefab);
+            var bullet = newActor.GetScript<BulletController>();
+            return bullet;
         }
 
         public override void OnEnable()
@@ -29,6 +43,8 @@ namespace Game
 
         public override void OnUpdate()
         {
+            HandleFire();
+
             var cameraVector = new Vector3(_camera.Transform.Forward.X, 0, _camera.Transform.Forward.Z);
 
             var inputHorizontal = Input.GetAxis("Horizontal");
@@ -40,6 +56,26 @@ namespace Game
 
             Actor.Position += moveDir * Speed;
             TurnToMousePos();
+        }
+
+        private void HandleFire()
+        {
+            var fireInput = Input.GetAction("Fire");
+            if(fireInput)
+            {
+                var bullet = _bulletPool.Rent();
+
+                Action returnBullet = async () =>
+                {
+                    await Task.Delay(TimeSpan.FromSeconds(2));
+                    _bulletPool.Return(bullet);
+                };
+                returnBullet();
+
+                bullet.Actor.Position = Actor.Position + _bulletOffset;
+                var rigidbody = bullet.Actor.As<RigidBody>();
+                rigidbody.LinearVelocity = Actor.Direction * _bulletSpeed;
+            }
         }
 
         private void TurnToMousePos()

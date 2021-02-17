@@ -155,6 +155,7 @@
 			"TypeName": "Game.EnemyController",
 			"ParentID": "43ff6a4840fbdcbb11b0d8b7e6cc0e83",
 			"V": {
+	"HpBar": "ddd35039491664e3830719a9f1b6e7e5",
 	"Defaults": "e51fa59a4675d6bcdcf16595ca5f77ae"
 }
 		},
@@ -211,6 +212,97 @@
 			}
 		},
 		{
+			"ID": "4e25ed3b4ae77f90f5d46b993c8a3b6f",
+			"TypeName": "FlaxEngine.UICanvas",
+			"ParentID": "43ff6a4840fbdcbb11b0d8b7e6cc0e83",
+			"IsActive": false,
+			"Name": "UICanvas",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 153.0,
+					"Z": 0.0
+				}
+			},
+			"V": {
+	"RenderMode": 2,
+	"Size": {
+		"X": 119.0,
+		"Y": 28.0
+	}
+}
+		},
+		{
+			"ID": "c5a8e1f244495ab54bb3fcaf84bf1658",
+			"TypeName": "FlaxEngine.UIControl",
+			"ParentID": "4e25ed3b4ae77f90f5d46b993c8a3b6f",
+			"Name": "EnemyHpBar",
+			"Control": "FlaxEngine.GUI.ProgressBar",
+			"Data": {
+	"SmoothingScale": 1.0,
+	"Minimum": 0.0,
+	"Maximum": 100.0,
+	"Value": 50.0,
+	"BarMargin": {
+		"Left": 1.0,
+		"Right": 1.0,
+		"Top": 1.0,
+		"Bottom": 1.0
+	},
+	"BarColor": {
+		"R": 0.0392156877,
+		"G": 0.827451,
+		"B": 0.156862751,
+		"A": 1.0
+	},
+	"AnchorMin": {
+		"X": 0.0,
+		"Y": 0.0
+	},
+	"AnchorMax": {
+		"X": 1.0,
+		"Y": 1.0
+	},
+	"Offsets": {
+		"Left": 0.0,
+		"Right": 0.0,
+		"Top": 0.0,
+		"Bottom": 0.0
+	},
+	"Scale": {
+		"X": 1.0,
+		"Y": 1.0
+	},
+	"Pivot": {
+		"X": 0.5,
+		"Y": 0.5
+	},
+	"Shear": {
+		"X": 0.0,
+		"Y": 0.0
+	},
+	"Rotation": 0.0,
+	"BackgroundColor": {
+		"R": 0.109803922,
+		"G": 0.109803922,
+		"B": 0.109803922,
+		"A": 1.0
+	},
+	"Enabled": true,
+	"Visible": true,
+	"AutoFocus": false
+}
+		},
+		{
+			"ID": "ddd35039491664e3830719a9f1b6e7e5",
+			"TypeName": "Game.EnemyHpBar",
+			"ParentID": "c5a8e1f244495ab54bb3fcaf84bf1658",
+			"V": {
+	"BarControl": "c5a8e1f244495ab54bb3fcaf84bf1658",
+	"Camera": "b0d72c3746caebca055e1f921ca21c7c"
+}
+		},
+		{
 			"ID": "0757301b4062d82023e530ba02cf4cad",
 			"TypeName": "FlaxEngine.StaticModel",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
@@ -239,7 +331,8 @@
 			"TypeName": "Game.PlayerController",
 			"ParentID": "0757301b4062d82023e530ba02cf4cad",
 			"V": {
-	"HpBar": "ec1775b04373bb4317baf08ca2fcda8f",
+	"_bulletPrefab": "9dbf3a0a4ff8e7104b57be9f9a2e95fe",
+	"HpBar": "212d16204c94c75f6bace1a4e5cd6a60",
 	"Defaults": "e51fa59a4675d6bcdcf16595ca5f77ae",
 	"Speed": 5.0
 }
@@ -280,36 +373,6 @@
 			}
 		},
 		{
-			"ID": "51e42544432dae3662a20e8eb374fe6f",
-			"TypeName": "FlaxEngine.StaticModel",
-			"ParentID": "74a68a984824b4510d12589f199ad68f",
-			"Name": "Plane",
-			"Transform": {
-				"Orientation": {
-					"X": -0.7071068286895752,
-					"Y": 0.0,
-					"Z": 0.0,
-					"W": 0.7071068286895752
-				},
-				"Scale": {
-					"X": 30.0,
-					"Y": 30.0,
-					"Z": 0.0
-				}
-			},
-			"Model": "54a1ff4a42af9f018234f7b39b1366b3",
-			"Buffer": {
-				"Entries": [
-					{
-						"Material": "00000000000000000000000000000000",
-						"ShadowsMode": 3,
-						"Visible": true,
-						"ReceiveDecals": true
-					}
-				]
-			}
-		},
-		{
 			"ID": "75aadb05484403321141acb03048c291",
 			"TypeName": "FlaxEngine.UICanvas",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
@@ -330,10 +393,10 @@
 }
 		},
 		{
-			"ID": "c5a8e1f244495ab54bb3fcaf84bf1658",
+			"ID": "973da6da4e513933f782d984bf26fa29",
 			"TypeName": "FlaxEngine.UIControl",
 			"ParentID": "75aadb05484403321141acb03048c291",
-			"Name": "HpBar",
+			"Name": "PlayerHpBar",
 			"Control": "FlaxEngine.GUI.ProgressBar",
 			"Data": {
 	"SmoothingScale": 1.0,
@@ -391,12 +454,65 @@
 }
 		},
 		{
-			"ID": "ec1775b04373bb4317baf08ca2fcda8f",
+			"ID": "212d16204c94c75f6bace1a4e5cd6a60",
 			"TypeName": "Game.HpBar",
-			"ParentID": "c5a8e1f244495ab54bb3fcaf84bf1658",
+			"ParentID": "973da6da4e513933f782d984bf26fa29",
 			"V": {
-	"BarControl": "c5a8e1f244495ab54bb3fcaf84bf1658"
+	"BarControl": "973da6da4e513933f782d984bf26fa29"
 }
+		},
+		{
+			"ID": "74bfc0914ba15ea6fb10949b84c186c6",
+			"TypeName": "FlaxEngine.BoxCollider",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Floor",
+			"Transform": {
+				"Scale": {
+					"X": 100.0,
+					"Y": 1.0,
+					"Z": 100.0
+				}
+			},
+			"Center": {
+				"X": 0.0,
+				"Y": -0.5,
+				"Z": 0.0
+			},
+			"Size": {
+				"X": 100.0,
+				"Y": 1.0,
+				"Z": 100.0
+			}
+		},
+		{
+			"ID": "e3d9127644487235329642b7977c688c",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "74bfc0914ba15ea6fb10949b84c186c6",
+			"Name": "Plane",
+			"Transform": {
+				"Orientation": {
+					"X": -0.7071068286895752,
+					"Y": 0.0,
+					"Z": 0.0,
+					"W": 0.7071068286895752
+				},
+				"Scale": {
+					"X": 1.0,
+					"Y": 100.0,
+					"Z": 1.0
+				}
+			},
+			"Model": "54a1ff4a42af9f018234f7b39b1366b3",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
 		}
 	]
 }
